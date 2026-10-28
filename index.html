@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AetherosMC | Kalitenin Sahibi</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background: #050b10; color: #fff; overflow-x: hidden; }
+
+        /* Navbar */
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 8%; background: rgba(5, 11, 16, 0.9);
+            position: fixed; width: 100%; top: 0; z-index: 1000;
+            border-bottom: 1px solid rgba(0, 242, 254, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        .logo { font-size: 1.5rem; font-weight: bold; color: #00f2fe; text-transform: uppercase; letter-spacing: 2px; text-shadow: 0 0 10px rgba(0,242,254,0.5); }
+        .nav-links { display: flex; gap: 20px; list-style: none; }
+        .nav-links a { color: #a0c0d0; text-decoration: none; font-weight: 600; transition: 0.3s; }
+        .nav-links a:hover { color: #00f2fe; }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
+            background: linear-gradient(rgba(5, 11, 16, 0.7), rgba(5, 11, 16, 0.95)), 
+                        radial-gradient(circle, rgba(0, 242, 254, 0.15) 0%, transparent 70%);
+            text-align: center; padding: 0 20px;
+        }
+        .badge {
+            background: rgba(0, 242, 254, 0.1); border: 1px solid #00f2fe; color: #00f2fe;
+            padding: 8px 20px; border-radius: 30px; font-size: 0.9rem; font-weight: bold;
+            margin-bottom: 20px; box-shadow: 0 0 15px rgba(0,242,254,0.2);
+        }
+        h1 { font-size: 3.5rem; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 15px; }
+        h1 span { color: #00f2fe; text-shadow: 0 0 20px rgba(0,242,254,0.6); }
+        p.subtitle { font-size: 1.2rem; color: #8aa8b8; max-width: 600px; margin-bottom: 35px; line-height: 1.6; }
+
+        /* Buttons */
+        .btn-group { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; }
+        .btn {
+            padding: 15px 30px; font-size: 1.1rem; font-weight: bold; border-radius: 8px;
+            cursor: pointer; border: none; transition: 0.3s; text-decoration: none; color: #fff;
+            display: flex; align-items: center; gap: 10px;
+        }
+        .btn-ip { background: #00f2fe; color: #050b10; box-shadow: 0 0 20px rgba(0, 242, 254, 0.4); }
+        .btn-ip:hover { background: #4facfe; transform: translateY(-3px); box-shadow: 0 0 30px rgba(0, 242, 254, 0.7); }
+        .btn-discord { background: #5865F2; box-shadow: 0 0 20px rgba(88, 101, 242, 0.4); }
+        .btn-discord:hover { background: #4752C4; transform: translateY(-3px); box-shadow: 0 0 30px rgba(88, 101, 242, 0.7); }
+
+        /* Features Section */
+        .container { max-width: 1100px; margin: 0 auto; padding: 80px 20px; }
+        .section-title { text-align: center; font-size: 2.2rem; margin-bottom: 50px; color: #fff; }
+        .section-title span { color: #00f2fe; }
+        
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .card {
+            background: rgba(13, 27, 42, 0.6); border: 1px solid rgba(0, 242, 254, 0.15);
+            padding: 35px 25px; border-radius: 12px; transition: 0.3s; text-align: left;
+            backdrop-filter: blur(5px);
+        }
+        .card:hover { border-color: #00f2fe; transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0, 242, 254, 0.1); }
+        .card i { font-size: 2.5rem; color: #00f2fe; margin-bottom: 20px; }
+        .card h3 { font-size: 1.3rem; margin-bottom: 10px; }
+        .card p { color: #8aa8b8; font-size: 0.95rem; line-height: 1.5; }
+
+        /* Footer */
+        footer { background: #03070b; text-align: center; padding: 30px; color: #507080; border-top: 1px solid rgba(0,242,254,0.05); }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">AetherosMC</div>
+        <ul class="nav-links">
+            <li><a href="#">Ana Sayfa</a></li>
+            <li><a href="https://discord.gg/aetherosmc" target="_blank">Discord</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="badge">🔥 Yeni Nesil Göksel Macera Başlıyor</div>
+        <h1>AetherosMC <span>Network</span></h1>
+        <p class="subtitle">Kalitenin ve rekabetin buluştuğu nokta. Sunucumuza katıl, yerini al ve efsaneler arasına adını yazdır!</p>
+        
+        <div class="btn-group">
+            <button class="btn btn-ip" onclick="copyIP()">
+                <i class="fa-solid fa-server"></i> <span id="ip-text">oyna.aetherosmc.com.tr</span>
+            </button>
+            <a href="https://discord.gg/aetherosmc" target="_blank" class="btn btn-discord">
+                <i class="fa-brands fa-discord"></i> Topluluğa Katıl
+            </a>
+        </div>
+    </section>
+
+    <div class="container">
+        <h2 class="section-title">Neden <span>AetherosMC</span>?</h2>
+        <div class="grid">
+            <div class="card">
+                <i class="fa-solid fa-bolt"></i>
+                <h3>Sıfır Lag Performansı</h3>
+                <p>En güncel optimizasyonlar ve güçlü makinelerimizle takılmasız, akıcı bir oyun deneyimi sunuyoruz.</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-shield-halved"></i>
+                <h3>Adil ve Eşit Oyun</h3>
+                <p>Güçlü koruma sistemlerimiz ve ilgili yönetim ekibimizle hilesiz bir ortam yaratıyoruz.</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-users-viewfinder"></i>
+                <h3>Aktif Yetkili Ekibi</h3>
+                <p>OOC Destek sistemi ve çözüm odaklı kadromuzla her an sorularınıza yanıt bulabilirsiniz.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2026 AetherosMC Network. Tüm hakları saklıdır.
+    </footer>
+
+    <script>
+        function copyIP() {
+            navigator.clipboard.writeText("oyna.aetherosmc.com.tr");
+            let btnText = document.getElementById("ip-text");
+            btnText.innerText = "IP KOPYALANDI!";
+            setTimeout(() => { btnText.innerText = "oyna.aetherosmc.com.tr"; }, 2000);
+        }
+    </script>
+</body>
+</html>
